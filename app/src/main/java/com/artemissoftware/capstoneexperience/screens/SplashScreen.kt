@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.artemissoftware.capstoneexperience.components.ReaderLogo
+import com.artemissoftware.capstoneexperience.navigation.CapstoneScreens
 import kotlinx.coroutines.delay
 
 @Composable
@@ -45,6 +46,8 @@ fun SplashScreen(navController: NavController) {
         )
 
         delay(2000L)
+
+        navController.navigate(route = CapstoneScreens.LoginScreen.name)
     }
 
     SplashContent(scale)
@@ -93,5 +96,5 @@ private fun SplashContent(scale: Animatable<Float, AnimationVector1D>) {
 @Preview(showBackground = false)
 @Composable
 private fun DefaultPreview() {
-    SplashContent(scale = Animatable(0f))
+
 }
