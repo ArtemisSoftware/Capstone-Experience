@@ -34,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.artemissoftware.capstoneexperience.R
 import com.artemissoftware.capstoneexperience.components.EmailInput
 import com.artemissoftware.capstoneexperience.components.PasswordInput
 import com.artemissoftware.capstoneexperience.components.ReaderLogo
@@ -42,6 +43,8 @@ import com.artemissoftware.capstoneexperience.components.ReaderLogo
 @Composable
 fun LoginScreen(navController: NavController) {
 
+
+    val showLoginForm = rememberSaveable { mutableStateOf(true) }
 
     Surface(
         modifier = Modifier.fillMaxSize()
@@ -54,13 +57,19 @@ fun LoginScreen(navController: NavController) {
 
             ReaderLogo()
 
-//            if (showLoginForm.value) UserForm(loading = false, isCreateAccount = false){ email, password ->
+            if (showLoginForm.value) {
+                UserForm(
+                    loading = false,
+                    isCreateAccount = false,
+                    onDone = { email, password ->
 //                viewModel.signInWithEmailAndPassword(email, password){
 //                    navController.navigate(ReaderScreens.ReaderHomeScreen.name)
 //
 //                }
-//            }
-//            else {
+                    }
+                )
+            }
+            else {
                 UserForm(
                     loading = false,
                     isCreateAccount = true,
@@ -70,30 +79,33 @@ fun LoginScreen(navController: NavController) {
 //                        }
                     }
                 )
-//            }
+            }
+
+
+            Spacer(modifier = Modifier.height(15.dp))
+
+            Row(
+                modifier = Modifier.padding(15.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                val text = if (showLoginForm.value) "Sign up" else "Login"
+                Text(text = "New User?")
+                Text(text,
+                    modifier = Modifier
+                        .clickable {
+                            showLoginForm.value = !showLoginForm.value
+
+                        }
+                        .padding(start = 5.dp),
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colors.secondaryVariant)
+
+            }
 
         }
 
-        Spacer(modifier = Modifier.height(15.dp))
 
-        Row(
-            modifier = Modifier.padding(15.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            val text = "LOGIN"//if (showLoginForm.value) "Sign up" else "Login"
-            Text(text = "New User?")
-            Text(text,
-                modifier = Modifier
-                    .clickable {
-                        //showLoginForm.value = !showLoginForm.value
-
-                    }
-                    .padding(start = 5.dp),
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colors.secondaryVariant)
-
-        }
 
     }
 
@@ -130,8 +142,8 @@ fun UserForm(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-//        if (isCreateAccount) Text(text = stringResource(id = R.string.create_acct),
-//            modifier = Modifier.padding(4.dp)) else Text("")
+        if (isCreateAccount) Text(text = stringResource(id = R.string.create_acct),
+            modifier = Modifier.padding(4.dp)) else Text("")
 
         EmailInput(
             emailState = email,

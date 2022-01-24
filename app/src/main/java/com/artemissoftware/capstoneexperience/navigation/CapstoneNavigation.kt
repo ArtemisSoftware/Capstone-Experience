@@ -1,6 +1,7 @@
 package com.artemissoftware.capstoneexperience.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -10,6 +11,7 @@ import com.artemissoftware.capstoneexperience.screens.login.LoginScreen
 import com.artemissoftware.capstoneexperience.screens.search.BookSearchScreen
 import com.artemissoftware.capstoneexperience.screens.stats.StatsScreen
 
+@ExperimentalComposeUiApi
 @Composable
 fun CapstoneNavigation() {
 
