@@ -153,15 +153,15 @@ fun UserForm(
             }
         )
 
-//        SubmitButton(
-//            textId = if (isCreateAccount) "Create Account" else "Login",
-//            loading = loading,
-//            validInputs = valid
-//        ){
-//            onDone(email.value.trim(), password.value.trim())
-//            keyboardController?.hide()
-//        }
-
+        SubmitButton(
+            textId = if (isCreateAccount) "Create Account" else "Login",
+            loading = loading,
+            validInputs = valid,
+            onClick = {
+                onDone(email.value.trim(), password.value.trim())
+                keyboardController?.hide()
+            }
+        )
 
 
     }
@@ -169,24 +169,24 @@ fun UserForm(
 
 }
 
-//@Composable
-//fun SubmitButton(textId: String,
-//                 loading: Boolean,
-//                 validInputs: Boolean,
-//                 onClick: () -> Unit) {
-//    Button(
-//        onClick = onClick,
-//        modifier = Modifier
-//            .padding(3.dp)
-//            .fillMaxWidth(),
-//        enabled = !loading && validInputs,
-//        shape = CircleShape
-//    ) {
-//        if (loading) CircularProgressIndicator(modifier = Modifier.size(25.dp))
-//        else Text(text = textId, modifier = Modifier.padding(5.dp))
-//
-//    }
-//
-//}
-//
+@Composable
+fun SubmitButton(textId: String,
+                 loading: Boolean,
+                 validInputs: Boolean,
+                 onClick: () -> Unit) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .padding(3.dp)
+            .fillMaxWidth(),
+        enabled = !loading && validInputs,
+        shape = CircleShape
+    ) {
+        if (loading) CircularProgressIndicator(modifier = Modifier.size(25.dp))
+        else Text(text = textId, modifier = Modifier.padding(5.dp))
+
+    }
+
+}
+
 
