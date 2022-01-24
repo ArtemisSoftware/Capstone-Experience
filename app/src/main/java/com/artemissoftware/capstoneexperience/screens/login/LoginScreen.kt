@@ -34,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.artemissoftware.capstoneexperience.components.EmailInput
 import com.artemissoftware.capstoneexperience.components.ReaderLogo
 
 @Composable
@@ -125,13 +126,16 @@ fun UserForm(
 
 //        if (isCreateAccount) Text(text = stringResource(id = R.string.create_acct),
 //            modifier = Modifier.padding(4.dp)) else Text("")
-//        EmailInput(
-//            emailState = email, enabled = !loading,
-//            onAction = KeyboardActions {
-//                passwordFocusRequest.requestFocus()
-//            },
-//        )
-//        PasswordInput(
+
+        EmailInput(
+            emailState = email,
+            enabled = !loading,
+            onAction = KeyboardActions {
+                passwordFocusRequest.requestFocus()
+            },
+        )
+
+    //        PasswordInput(
 //            modifier = Modifier.focusRequester(passwordFocusRequest),
 //            passwordState = password,
 //            labelId = "Password",
