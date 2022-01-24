@@ -35,8 +35,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.artemissoftware.capstoneexperience.components.EmailInput
+import com.artemissoftware.capstoneexperience.components.PasswordInput
 import com.artemissoftware.capstoneexperience.components.ReaderLogo
 
+@ExperimentalComposeUiApi
 @Composable
 fun LoginScreen(navController: NavController) {
 
@@ -59,11 +61,15 @@ fun LoginScreen(navController: NavController) {
 //                }
 //            }
 //            else {
-//                UserForm(loading = false, isCreateAccount = true){ email, password ->
-//                    viewModel.createUserWithEmailAndPassword(email, password) {
-//                        navController.navigate(ReaderScreens.ReaderHomeScreen.name)
-//                    }
-//                }
+                UserForm(
+                    loading = false,
+                    isCreateAccount = true,
+                    onDone = { email, password ->
+//                        viewModel.createUserWithEmailAndPassword(email, password) {
+//                            navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+//                        }
+                    }
+                )
 //            }
 
         }
@@ -135,17 +141,18 @@ fun UserForm(
             },
         )
 
-    //        PasswordInput(
-//            modifier = Modifier.focusRequester(passwordFocusRequest),
-//            passwordState = password,
-//            labelId = "Password",
-//            enabled = !loading, //Todo change this
-//            passwordVisibility = passwordVisibility,
-//            onAction = KeyboardActions {
-//                if (!valid) return@KeyboardActions
-//                onDone(email.value.trim(), password.value.trim())
-//            })
-//
+        PasswordInput(
+            modifier = Modifier.focusRequester(passwordFocusRequest),
+            passwordState = password,
+            labelId = "Password",
+            enabled = !loading, //Todo change this
+            passwordVisibility = passwordVisibility,
+            onAction = KeyboardActions {
+                if (!valid) return@KeyboardActions
+                onDone(email.value.trim(), password.value.trim())
+            }
+        )
+
 //        SubmitButton(
 //            textId = if (isCreateAccount) "Create Account" else "Login",
 //            loading = loading,

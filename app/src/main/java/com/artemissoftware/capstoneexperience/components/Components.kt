@@ -45,7 +45,7 @@ import coil.compose.rememberImagePainter
 
 @Composable
 fun ReaderLogo(modifier: Modifier = Modifier) {
-    Text(text = "A. Reader",
+    Text(text = "Capstone",
         modifier = modifier.padding(bottom = 16.dp),
         style = MaterialTheme.typography.h3,
         color = Color.Red.copy(alpha = 0.5f))
