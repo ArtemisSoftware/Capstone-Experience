@@ -1,4 +1,4 @@
-package com.artemissoftware.capstoneexperience.screens.home
+package com.artemissoftware.capstoneexperience.components
 
 import android.content.Context
 import android.view.MotionEvent
@@ -41,38 +41,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
-import com.artemissoftware.capstoneexperience.components.FABContent
-import com.artemissoftware.capstoneexperience.components.ReaderAppBar
-import com.artemissoftware.capstoneexperience.navigation.CapstoneScreens
 
 @Composable
-fun HomeScreen(
-    navController: NavController
-) {
+fun FABContent(onTap: () -> Unit) {
 
-    Scaffold(
-        topBar = {
-            ReaderAppBar(
-                title = "A.Reader",
-                navController = navController
-            )
-        },
-        floatingActionButton = {
-            FABContent{
-                navController.navigate(CapstoneScreens.SearchScreen.name)
-            }
-
-        }
+    FloatingActionButton(
+        onClick = { onTap() },
+        shape = RoundedCornerShape(50.dp),
+        backgroundColor = Color(0xFF92CBDF)
     ) {
-        //content
-        Surface(modifier = Modifier.fillMaxSize()) {
-            //home content
-            //HomeContent(navController, viewModel)
-
-        }
+        Icon(imageVector = Icons.Default.Add,
+            contentDescription = "Add a Book",
+            tint = Color.White)
 
     }
-
-
 
 }

@@ -47,7 +47,8 @@ fun SplashScreen(navController: NavController) {
 
         delay(2000L)
 
-        navController.navigate(route = CapstoneScreens.LoginScreen.name)
+        //navController.navigate(route = CapstoneScreens.LoginScreen.name)
+        navController.navigate(route = CapstoneScreens.HomeScreen.name)
     }
 
     SplashContent(scale)
