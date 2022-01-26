@@ -7,6 +7,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -47,7 +48,7 @@ fun ReaderAppBar(
     title: String,
     icon: ImageVector? = null,
     showProfile: Boolean = true,
-    navController: NavController,
+    navController: NavController? =null,
     onBackArrowClicked:() -> Unit = {}
 ) {
 
@@ -103,7 +104,7 @@ fun ReaderAppBar(
                     Icon(
                         imageVector = Icons.Filled.Logout ,
                         contentDescription = "Logout" ,
-                        // tint = Color.Green.copy(alpha = 0.4f)
+                        tint = Color.Green.copy(alpha = 0.4f)
                     )
                 }else Box {}
 

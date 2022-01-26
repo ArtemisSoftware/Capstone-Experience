@@ -45,8 +45,33 @@ import coil.compose.rememberImagePainter
 
 @Composable
 fun ReaderLogo(modifier: Modifier = Modifier) {
-    Text(text = "Capstone",
+    Text(
+        text = "Capstone",
         modifier = modifier.padding(bottom = 16.dp),
         style = MaterialTheme.typography.h3,
-        color = Color.Red.copy(alpha = 0.5f))
+        color = Color.Red.copy(alpha = 0.5f)
+    )
+}
+
+@Composable
+fun TitleSection(
+    modifier: Modifier = Modifier,
+    label: String
+) {
+
+    Surface(
+        modifier = modifier
+            .padding(start = 5.dp, top = 1.dp)) {
+
+        Column {
+            Text(
+                text = label,
+                fontSize = 19.sp,
+                fontStyle = FontStyle.Normal,
+                textAlign = TextAlign.Left
+            )
+        }
+
+    }
+
 }
