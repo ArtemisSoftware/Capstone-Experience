@@ -91,25 +91,26 @@ fun ReaderAppBar(
 
 
     },
-//        actions = {
-//            IconButton(onClick = {
-////                FirebaseAuth.getInstance()
-////                    .signOut().run {
-////                        navController.navigate(ReaderScreens.LoginScreen.name)
-////                    }
-//            }) {
-//                if (showProfile) Row() {
-//                    Icon(
-//                        imageVector = Icons.Filled.Logout ,
-//                        contentDescription = "Logout" ,
-//                        // tint = Color.Green.copy(alpha = 0.4f)
-//                    )
-//                }else Box {}
-//
-//
-//
-//            }
-//        },
+        actions = {
+            IconButton(onClick = {
+                //TODO: Firebase
+//                FirebaseAuth.getInstance()
+//                    .signOut().run {
+//                        navController.navigate(ReaderScreens.LoginScreen.name)
+//                    }
+            }) {
+                if (showProfile) Row() {
+                    Icon(
+                        imageVector = Icons.Filled.Logout ,
+                        contentDescription = "Logout" ,
+                        // tint = Color.Green.copy(alpha = 0.4f)
+                    )
+                }else Box {}
+
+
+
+            }
+        },
         backgroundColor = Color.Transparent,
         elevation = 0.dp)
 
