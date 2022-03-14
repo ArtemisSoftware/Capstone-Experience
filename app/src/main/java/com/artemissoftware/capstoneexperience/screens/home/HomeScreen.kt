@@ -94,7 +94,7 @@ fun HomeContent(
     var listOfBooks = emptyList<MBook>()
 
     //TODO: Firebase
-//    val currentUser = FirebaseAuth.getInstance().currentUser
+    val currentUser = "FirebaseAuth.getInstance().currentUser"
 //
 //    if (!viewModel.data.value.data.isNullOrEmpty()) {
 //        listOfBooks = viewModel.data.value.data!!.toList().filter { mBook ->
@@ -148,7 +148,7 @@ fun HomeContent(
                 )
 
                 Text(
-                    text = "currentUserName!!",
+                    text = currentUser!!,
                     modifier = Modifier.padding(2.dp),
                     style = MaterialTheme.typography.overline,
                     color = Color.Red,
