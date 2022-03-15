@@ -95,3 +95,30 @@ fun BookRating(score: Double = 4.5) {
 
 
 }
+
+@Preview
+@Composable
+fun RoundedButton(
+    label: String = "Reading",
+    radius: Int = 29,
+    onPress: () -> Unit = {}) {
+    Surface(modifier = Modifier.clip(RoundedCornerShape(
+        bottomEndPercent = radius,
+        topStartPercent = radius)),
+        color = Color(0xFF92CBDF)) {
+
+        Column(modifier = Modifier
+            .width(90.dp)
+            .heightIn(40.dp)
+            .clickable { onPress.invoke() },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(text = label, style = TextStyle(color = Color.White,
+                fontSize = 15.sp),)
+
+        }
+
+    }
+
+
+}
