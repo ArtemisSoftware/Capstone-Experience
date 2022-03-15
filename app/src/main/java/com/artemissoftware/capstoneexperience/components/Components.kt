@@ -73,5 +73,25 @@ fun TitleSection(
         }
 
     }
+}
+
+
+@Composable
+fun BookRating(score: Double = 4.5) {
+    Surface(modifier = Modifier
+        .height(70.dp)
+        .padding(4.dp),
+        shape = RoundedCornerShape(56.dp),
+        elevation = 6.dp,
+        color = Color.White) {
+        Column(modifier = Modifier.padding(4.dp)) {
+            Icon(imageVector = Icons.Filled.StarBorder, contentDescription = "Start",
+                modifier = Modifier.padding(3.dp))
+            Text(text = score.toString(), style = MaterialTheme.typography.subtitle1)
+
+        }
+
+    }
+
 
 }
